@@ -4,25 +4,48 @@ let arr = [
 	[0, 0, 0],
 	[0, 0, 0]
 ]
-
-let yoGane = [false,0];
+let players = ["","",0,0]
+let yoGane = [true,0];
 let baldo = document.getElementsByClassName('baldo')
 let tiles = document.getElementsByClassName('tile')
 let message = document.getElementById('message')
 let rest = document.getElementById('restart')
+let start = document.getElementById('start');
+let player1 = document.getElementById('player1');
+let player2 = document.getElementById('player2');
+let form = document.getElementById('form')
+let turnos = document.querySelector('p');
+
+start.addEventListener('click', (e)=>{
+	e.preventDefault();
+	console.log(player1.value,player2.value)
+	if(player1.value !== '' || player2.value !==''){
+	players[0] = player1.value
+	players[1] = player2.value
+	player1.value =""
+	player2.value = ""
+	form.style = 'display: none'
+	turnos.style = 'display: block'
+	turnos.innerHTML = `${players[0]}, es tu turno`
+	yoGane[0] = false
+	} else{
+		alert("ponga nombres")
+	}
+})
 function escribir(x, y) {
 	if (baldo[x].children[y].innerHTML == "" && yoGane[0]==false) {
 		if (turn == 1) {
 			baldo[x].children[y].innerHTML = "X";
 			arr[x][y] = 1
 			yoGane[1]++;
-			
+			turnos.innerHTML = `${players[1]}, es tu turno`
 			turn = 2
 			
 			test()
 			return
 		} else { turn == 2 } {
 			baldo[x].children[y].innerHTML = "O";
+			turnos.innerHTML = `${players[0]}, es tu turno`
 			arr[x][y] = 2
 			yoGane[1]++;
 			
@@ -43,7 +66,7 @@ function test() {
 		}
 	}
 	if(val!== -1) {
-		message.innerHTML=`Ha ganado ${val == 1 ? "X" : "O"}`
+		message.innerHTML=`Felicidades, ${val == 1 ? players[0] : players[1]}, has Ganado`
 		yoGane[0]=true
 		for(let i in tiles){
 			tiles[i].style='background-color: #008000';
@@ -96,6 +119,7 @@ function resetear() {
 		]
 		tiles[i].style='background-color:  #014067';
 		message.innerHTML=""
+		form.style = 'display: block'
 	}
 }
 	
