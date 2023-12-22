@@ -15,7 +15,9 @@ let player1 = document.getElementById('player1');
 let player2 = document.getElementById('player2');
 let form = document.getElementById('form')
 let turnos = document.querySelector('p');
-
+let userOne = document.getElementById('userOne')
+let userTwo = document.getElementById('userTwo')
+let user = document.getElementById('user')
 start.addEventListener('click', (e) => {
 	e.preventDefault();
 	console.log(player1.value, player2.value)
@@ -28,6 +30,10 @@ start.addEventListener('click', (e) => {
 		turnos.style = 'display: block'
 		turnos.innerHTML = `${players[0]}, es tu turno`
 		yoGane[0] = false
+		userOne.innerHTML = `<td> ${players[0]}</td><td>${players[2]}`
+		userTwo.innerHTML = `<td> ${players[1]}</td><td>${players[3]}` 
+		user.style= "display: block"
+
 	} else {
 		alert("ponga nombres")
 	}
@@ -122,14 +128,21 @@ function empty() {
 		tiles[i].style = 'background-color:  #014067';
 	}
 	message.innerHTML = ""
+	userOne.innerHTML = `<td> ${players[0]}</td><td>${players[2]}</td>`
+	userTwo.innerHTML = `<td> ${players[1]}</td><td>${players[3]}</td>`
+	
 
 }
 function resetear() {
+	players = ["", "", 0, 0]
 	empty();
-	
+	turnos.innerHTML=""
 	form.style = 'display: block'
 	yoGane[0] = true
+	user.style= "display: none"
+	
 }
 function denuevo() {
 	empty()
+	
 }
