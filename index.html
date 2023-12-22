@@ -11,25 +11,46 @@
 	<header>
 		<h1 id="message"></h1>
 	</header>
+	
 	<div id="main">
-		<table border="1">
-			<tr class="baldo">
-				<td class="tile" onclick="escribir(0,0)"></td>
-				<td class="tile"  onclick="escribir(0,1)"></td>
-				<td class="tile"  onclick="escribir(0,2)"></td>
-			</tr>
-			<tr class="baldo">
-				<td class="tile"  onclick="escribir(1,0)"></td>
-				<td class="tile"  onclick="escribir(1,1)"></td>
-				<td class="tile"  onclick="escribir(1,2)"></td>
-			</tr>
-			<tr class="baldo">
-				<td class="tile"  onclick="escribir(2,0)"></td>
-				<td  class="tile" onclick="escribir(2,1)"></td>
-				<td class="tile"  onclick="escribir(2,2)"></td>
-			</tr>
-		</table>
+		<div id="form">
+			<form>
+				<label for="player1">Jugador1</label>
+				<input id="player1" type="text"/>
+				<br>
+				<label for="player2">Jugador2</label>
+				<input id="player2" type="text"/>
+				<br>
+				<button id="start">Comenzar</button>
+			</form>
+		</div>
+		<div id="padre">
+			<table id="tabla">
+				<tbody>
+					<tr class="baldo">
+						<td class="tile" onclick="escribir(0,0)"></td>
+						<td class="tile"  onclick="escribir(0,1)"></td>
+						<td class="tile"  onclick="escribir(0,2)"></td>
+					</tr>
+					<tr class="baldo">
+						<td class="tile"  onclick="escribir(1,0)"></td>
+						<td class="tile"  onclick="escribir(1,1)"></td>
+						<td class="tile"  onclick="escribir(1,2)"></td>
+					</tr>
+					<tr class="baldo">
+						<td class="tile"  onclick="escribir(2,0)"></td>
+						<td  class="tile" onclick="escribir(2,1)"></td>
+						<td class="tile"  onclick="escribir(2,2)"></td>
+					</tr>
+				</tbody>
+				
+			</table>
+			<div id="hijo"></div>
+		</div>
+		
+		<button id="restart" onclick="resetear()">Restablecer</button>
 	</div>
+	
 <script src="index.js" type="text/javascript"></script>
 </body>
 </html>

@@ -9,6 +9,7 @@ let yoGane = [false,0];
 let baldo = document.getElementsByClassName('baldo')
 let tiles = document.getElementsByClassName('tile')
 let message = document.getElementById('message')
+let rest = document.getElementById('restart')
 function escribir(x, y) {
 	if (baldo[x].children[y].innerHTML == "" && yoGane[0]==false) {
 		if (turn == 1) {
@@ -38,6 +39,7 @@ function test() {
 	if(yoGane[1]==9){
 		for(let i in tiles){
 			tiles[i].style='background-color: #ae0505';
+			
 		}
 	}
 	if(val!== -1) {
@@ -45,6 +47,7 @@ function test() {
 		yoGane[0]=true
 		for(let i in tiles){
 			tiles[i].style='background-color: #008000';
+			
 		}
 	}
 }
@@ -79,3 +82,20 @@ function finished(arr, size) {
 
 	return -1;
 }
+
+
+function resetear() {
+	for(let i in tiles){
+		tiles[i].innerHTML=""
+		yoGane = [false,0];
+		turn = 1
+		arr = [
+			[0, 0, 0],
+			[0, 0, 0],
+			[0, 0, 0]
+		]
+		tiles[i].style='background-color:  #014067';
+		message.innerHTML=""
+	}
+}
+	
